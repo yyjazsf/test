@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>websocket</title>
+  <style>
+    #root{
+      display: none;
+    }
+    .active{
+      display:block !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <p>status: <span id="status"></span></p>
+    <button onclick="send()">发送数据到服务器</button>（3秒后服务器会终止链接）
+  </div>
+
+  <script>
+    const status = document.getElementById('status')
+    const root = document.getElementById('root')
+
+    root.className = 'active'
+    // core
+    const ws = new WebSocket('ws://127.0.0.1:3000')
+    ws.onerror = (e) => {
+      status.innerText = `error:${JSON.stringify(e)}`
+      console.log('error', e);
+    }
+    ws.onopen = (e) => {
+      status.innerText = '握手成功'
+    }
+    ws.onclose = () => {
+      status.innerText = 'close'
+    }
+    // end core
+    function send(){
+      if(ws.readyState !== 1 ){
+        alert(['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'][ws.readyState])
+        return
+      }
+      ws.send(JSON.stringify({
+        name:'nodejs'
+      }))
+    }
+  </script>
+</body>
+</html>
