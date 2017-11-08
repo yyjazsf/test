@@ -1,0 +1,23 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "many test(js)",
+  "main": "index.js",
+  "scripts": {
+    "websocket": "node websocket/index && browser-sync start --config 'websocket/bs-config.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyjazsf/test.git"
+  },
+  "author": "Ivan Ying <yyjazsf@live.cn>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yyjazsf/test/issues"
+  },
+  "homepage": "https://github.com/yyjazsf/test#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.13"
+  }
+}
