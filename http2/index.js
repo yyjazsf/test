@@ -2,7 +2,7 @@
  * sudo node http2(use port 443 need sudo)
  */
 
-// openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout http2/certs/nginx-selfsigned.key -out http2/certs/nginx-selfsigned.crt
+// openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout http2/certs/selfsigned.key -out http2/certs/selfsigned.crt
 const http2 = require('http2');
 const fs = require('fs');
 const path = require('path');
