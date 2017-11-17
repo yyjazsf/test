@@ -19,13 +19,10 @@ Dictionary.prototype.findMostSimilar = function (term) {
     let tmpNeedChange = 0
 
     // term.indexOf?
-
     if (tmpNeedChange < needChange) {
       needChange = tmpNeedChange
       return ret = item
     }
-
-
   })
   return ret
 }
